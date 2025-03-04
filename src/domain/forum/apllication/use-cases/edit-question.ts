@@ -1,3 +1,4 @@
+import { Question } from '../../enterprise/entities/question'
 import { QuestionsRepository } from '../repositories/questions-repository'
 
 interface EditQuestionUseCaseRequest {
@@ -7,16 +8,18 @@ interface EditQuestionUseCaseRequest {
   questionId: string
 }
 
-interface EditQuestionUseCaseResponse {}
+interface EditQuestionUseCaseResponse {
+  question: Question
+}
 
 export class EditQuestionUseCase {
   constructor(private questionsRepository: QuestionsRepository) {}
 
   async execute({
     authorId,
+    questionId,
     title,
     content,
-    questionId,
   }: EditQuestionUseCaseRequest): Promise<EditQuestionUseCaseResponse> {
     const question = await this.questionsRepository.findById(questionId)
 
@@ -33,6 +36,8 @@ export class EditQuestionUseCase {
 
     await this.questionsRepository.save(question)
 
-    return {}
+    return {
+      question,
+    }
   }
 }
