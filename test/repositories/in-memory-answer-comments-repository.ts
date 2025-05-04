@@ -1,5 +1,5 @@
 import { AnswerComment } from '@/domain/forum/enterprise/entities/answer-comment'
-import { AnswerCommentsRepository } from '@/domain/forum/apllication/repositories/answer-comments-repository'
+import { AnswerCommentsRepository } from '@/domain/forum/application/repositories/answer-comments-repository'
 import { PaginationParams } from '@/core/repositories/pagination-params'
 export class InMemoryAnswerCommentsRepository
   implements AnswerCommentsRepository

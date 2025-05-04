@@ -1,7 +1,7 @@
 import { AnswersRepository } from '../repositories/answers-repository'
 import { Either, left, right } from '@/core/either'
-import { ResourceNotFoundError } from '@/domain/forum/apllication/use-cases/errors/resource-not-found-error'
-import { NotAllowedError } from '@/domain/forum/apllication/use-cases/errors/not-allowed-error'
+import { ResourceNotFoundError } from '@/domain/forum/application/use-cases/errors/resource-not-found-error'
+import { NotAllowedError } from '@/domain/forum/application/use-cases/errors/not-allowed-error'
 interface DeleteAnswerUseCaseRequest {
   authorId: string
   answerId: string
