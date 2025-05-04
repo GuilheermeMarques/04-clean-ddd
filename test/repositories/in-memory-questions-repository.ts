@@ -46,15 +46,15 @@ export class InMemoryQuestionsRepository implements QuestionsRepository {
     const itemIdenx = this.items.findIndex((item) => item.id === question.id)
 
     this.items.splice(itemIdenx, 1)
+
+    await this.questionAttachmentsRepository.deleteManyByQuestionId(
+      question.id.toString(),
+    )
   }
 
   async save(question: Question): Promise<void> {
     const itemIdenx = this.items.findIndex((item) => item.id === question.id)
 
     this.items[itemIdenx] = question
-
-    await this.questionAttachmentsRepository.deleteManyByQuestionId(
-      question.id.toString(),
-    )
   }
 }
